@@ -56,7 +56,10 @@ def main():
         event, values = window.read()
         if event == sg.WIN_CLOSED or event == 'Exit':
             break
-        window['-KANJI-'].update(f'Kanji:{review_list[0].kanji} ')
+        if len(review_list) != 0:
+            window['-KANJI-'].update(f'Kanji:{review_list[0].kanji} ')
+        else:
+            window.close()
         if event == 'Next':
             if not new_kanji:
                 window['-MEANING-'].update(f'Meaning: {review_list[0].meaning}',visible=True)
@@ -65,15 +68,19 @@ def main():
                 window['-KANJI-'].update(f'Kanji:{review_list[0].kanji} ')
                 review_list.pop(0)
                 new_kanji = True
+                
+                # break
             else:
+                if len(review_list) == 0:
+                    window.close()
+                    break
                 window['-MEANING-'].update(visible=False)
                 window['-ON-'].update(visible=False)
                 window['-KUN-'].update(visible=False)
                 window['-KANJI-'].update(f'Kanji:{review_list[0].kanji} ')
                 new_kanji = False
-
-            if len(review_list) == 0:
-                break
+            # FIXME: fix the last kanji 
+            
 
         
 
