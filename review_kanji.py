@@ -22,38 +22,29 @@ def shuffle_kanji_list(kanji_list,min,max):
     review_list = kanji_list[min-1:max]
     return random.sample(review_list,len(review_list))
 def start_review(kanji_list):
-    # review_list = kanji_list[min-1:max]
     print('Kani review starting...')
     print('To proceed to the next kanji, press any key')
     for kanji in review_list:
         print('--------------------------------')
         print(kanji.kanji)
-        # remove the below line to show the meaning
         input()
         print(kanji)
 if __name__ == '__main__':
-    # read csv file
     file_name = 'heisig-kanjis.csv'
     kanji_list = get_kanji_list(file_name)
     
-    # min = input('Enter the starting kanji id: ')
-    # max = input('Enter the ending kanji id: ')
-    # while not min.isdigit() or not max.isdigit() or int(min) > int(max):
-    #     print('Please enter a number')
-    #     min = input('Enter the starting kanji id: ')
-    #     max = input('Enter the ending kanji id: ')
-    # min = int(min)
-    # max = int(max)
-    # shuffle
-    min = 1
-    max = 10
+    min = input('Enter the starting kanji id: ')
+    max = input('Enter the ending kanji id: ')
+    while not min.isdigit() or not max.isdigit() or int(min) > int(max):
+        print('Please enter a number')
+        min = input('Enter the starting kanji id: ')
+        max = input('Enter the ending kanji id: ')
+    min = int(min)
+    max = int(max)
+
     import random
-    print(type(kanji_list))
-    l = review_list = shuffle_kanji_list(kanji_list,min,max)
-    for i in l:
-        print(i)
+    review_list = shuffle_kanji_list(kanji_list,min,max)
+    start_review(review_list)
     
     
     
-    # review_list = shuffle_kanji_list(kanji_list,min,max)
-    # start_review(review_list)

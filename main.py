@@ -44,7 +44,6 @@ def main():
         max = int(max)
         print(min,max)
         review_list = shuffle_kanji_list(kanji_list,min,max)
-        # swap layout
         window.close()
         break
     window = sg.Window('Window Title', show_kanji_layout, size=(500,300),finalize=True)
