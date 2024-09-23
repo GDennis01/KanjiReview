@@ -34,7 +34,8 @@ Returns the list of kanji to save for next review if any.
 """
 def start_review(kanji_list):
     print('Kani review starting...')
-    print('To proceed to the next kanji, press any key. Press x to save it for next review')
+    print('To proceed to the next kanji, press any key.')
+    print('Press x to save it for next review.')
     kanji_next = []
     for kanji in review_list:
         print('--------------------------------')
@@ -52,7 +53,7 @@ if __name__ == '__main__':
     args = sys.argv
     kanji_list = get_kanji_list(file_name)
     # Custom file mode
-    if args[1] == '-f' and args[2]:
+    if len(args) == 3 and args[1] == '-f':
         file_name = args[2]
         review_list = []
         with open(file_name,'r') as f:
