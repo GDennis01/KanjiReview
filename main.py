@@ -3,6 +3,7 @@ from review_kanji import get_kanji_list,shuffle_kanji_list,start_review
 from review_kanji import Kanji
 import sys
 FONT_SIZE = 25
+# TODO: Fix bug where layouts change position when switching between them.
 def main():
     kanji_list = get_kanji_list('heisig-kanjis.csv')
     starting_layout_column = [  [sg.Text('Enter the kanji range')],
