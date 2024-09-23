@@ -108,6 +108,7 @@ def main():
                 window['-KUN-'].update(f'Kun-reading: {review_list[kanji_index].kun_reading}',visible=True)
                 window['-KANJI-'].update(f'Kanji:{review_list[kanji_index].kanji} ')
                 window['-NEXTREVIEW-'].update(visible=True)
+                print(f'Kanji rimanenti: {len(review_list)-kanji_index-1}')
                 kanji_index += 1
                 new_kanji = True 
             # When you click next the second time to show the next kanji
